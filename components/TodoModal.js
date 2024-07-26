@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Modal,
   View,
@@ -7,19 +7,19 @@ import {
   Text,
   TouchableOpacity,
   Alert,
-} from "react-native";
-import { useTodoStore } from "../store";
+} from 'react-native';
+import { useTodoStore } from '../store';
 
 export const TodoModal = ({ visible, onClose, selectTodo }) => {
   const createNewTodo = useTodoStore((state) => state.createNewTodo);
   const updateTogo = useTodoStore((state) => state.updateTogo);
   const todos = useTodoStore((state) => state.todos);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleSave = async () => {
     if (!title.trim() || !description.trim()) {
-      Alert.alert("Please fill in the fields");
+      Alert.alert('Please fill in the fields');
     } else if (selectTodo) {
       await updateTogo({ ...selectTodo, title, description });
       clear();
@@ -37,8 +37,8 @@ export const TodoModal = ({ visible, onClose, selectTodo }) => {
 
   const clear = () => {
     onClose();
-    setTitle("");
-    setDescription("");
+    setTitle('');
+    setDescription('');
   };
 
   useEffect(() => {
@@ -46,8 +46,8 @@ export const TodoModal = ({ visible, onClose, selectTodo }) => {
       setTitle(selectTodo.title);
       setDescription(selectTodo.description);
     } else {
-      setTitle("");
-      setDescription("");
+      setTitle('');
+      setDescription('');
     }
   }, [selectTodo]);
 
@@ -75,7 +75,7 @@ export const TodoModal = ({ visible, onClose, selectTodo }) => {
 
           <TouchableOpacity style={styles.btnClose} onPress={handleSave}>
             <Text style={styles.btnCloseText}>
-              {selectTodo ? "Update" : "Save"}
+              {selectTodo ? 'Update' : 'Save'}
             </Text>
           </TouchableOpacity>
         </View>
@@ -87,42 +87,42 @@ export const TodoModal = ({ visible, onClose, selectTodo }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#002766",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#002766',
     gap: 20,
   },
   btnsContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 20,
   },
   titleText: {
     fontSize: 30,
-    fontWeight: "600",
-    color: "white",
+    fontWeight: '600',
+    color: 'white',
   },
   inputTitle: {
     width: 300,
     padding: 10,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 8,
   },
   inputDescription: {
     width: 300,
     height: 80,
     padding: 10,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 8,
   },
   btnClose: {
     borderRadius: 10,
     paddingHorizontal: 30,
     paddingVertical: 15,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   btnCloseText: {
-    color: "#002766",
+    color: '#002766',
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });

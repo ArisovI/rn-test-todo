@@ -1,6 +1,7 @@
-import { FlatList, StyleSheet, View } from "react-native";
-import { useTodoStore } from "../store";
-import { Todo } from "./Todo";
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { useTodoStore } from '../store';
+import { Todo } from './Todo';
 
 export const Todos = ({ edit }) => {
   const todos = useTodoStore((state) => state.todos);

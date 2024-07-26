@@ -1,9 +1,9 @@
-import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
-import { Header } from "./components/Header";
-import { Todos } from "./components/Todos";
-import { TodoModal } from "./components/TodoModal";
+import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { Text, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Header } from './components/Header';
+import { Todos } from './components/Todos';
+import { TodoModal } from './components/TodoModal';
 
 export default function App() {
   const [isModal, setIsModal] = useState(false);
@@ -46,19 +46,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   addBtn: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 20,
     right: 20,
     width: 50,
     height: 50,
-    backgroundColor: "#002766",
+    backgroundColor: '#002766',
     borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   addBtnText: {
     fontSize: 30,
-    color: "white",
-    fontWeight: "700",
+    color: 'white',
+    fontWeight: '700',
   },
 });
